@@ -42,9 +42,9 @@
     padding-block: 28px;
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
-    min-height: 100%;
+    min-height: 100vh; box-sizing: border-box; display: flex; align-items: center; justify-content: center;
   }
-  .wrap { max-width: 460px; margin: 0 auto; display: grid; gap: 14px; }
+  .wrap { width: 100%; max-width: 460px; margin: 0 auto; display: grid; gap: 14px; }
 
   /* La carte elle-même : toujours sur fond blanc, texte sombre, comme du papier */
   .bc {
@@ -56,25 +56,25 @@
     container-type: inline-size;
   }
   .bc-left {
-    background: var(--yellow); position: relative;
-    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
-    padding: 5% 4%; min-height: 0;
+    background: linear-gradient(180deg, #f8c039 0%, #fee519 55%, #f8c039 100%); position: relative;
+    display: grid; grid-template-rows: 1fr auto; align-items: center; justify-items: center;
+    padding: 0; min-height: 0;
   }
   .bc-left::after { content: ""; position: absolute; top: 0; bottom: 0; right: -1px; width: 4px; background: var(--accent); }
-  .bc-photo { width: 27cqw; max-width: 100%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,.18); }
-  .bc-logo { width: 24cqw; max-width: 100%; display: block; border-radius: 6px; }
-  .bc-right { position: relative; padding: 5% 5% 5% 6%; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
+  .bc-photo { width: 26cqw; max-width: 100%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,.18); margin-top: 1cqw; }
+  .bc-logo { width: 80%; max-width: 100%; display: block; border-radius: 6px; margin-bottom: 2.4cqw; }
+  .bc-right { position: relative; padding: 5.5% 5% 5% 6%; display: grid; grid-template-rows: auto 1fr auto; min-width: 0; }
   .bc-name { font-family: var(--display); font-weight: 800; font-size: 5.9cqw; letter-spacing: .04em; line-height: 1; margin: 0; }
   .bc-role { font-size: 3.1cqw; color: #4a4e58; margin: 1.6cqw 0 0; line-height: 1.3; }
   .bc-role b { color: var(--accent); font-weight: 600; }
-  .bc-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 1cqw; font-size: 3.1cqw; line-height: 1.2; }
+  .bc-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2cqw; font-size: 3.1cqw; line-height: 1.2; }
   .bc-lines li { display: flex; align-items: center; gap: 2cqw; min-width: 0; }
   .bc-lines li a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: inherit; text-decoration: none; }
   .bc-lines svg { width: 3.6cqw; height: 3.6cqw; flex: none; stroke: var(--accent); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
   .bc-lines .tel { font-family: var(--display); font-weight: 700; font-size: 3.9cqw; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
 
   /* Dessous : actions */
-  .bc-icons { position: absolute; right: 5%; top: 50%; transform: translateY(-62%); display: flex; gap: 2cqw; }
+  .bc-icons { align-self: center; justify-self: end; display: flex; gap: 2cqw; padding-right: 1cqw; }
   .btn.wa, .btn.sms { padding: 0; border: 0; background: transparent; }
   .btn.wa svg, .btn.sms svg { width: 9.5cqw; height: 9.5cqw; padding: 2.1cqw; box-sizing: border-box; border-radius: 50%; color: #fff; stroke-width: 1.8; box-shadow: 0 3px 8px rgba(20,16,10,.2); }
   .btn.wa svg { background: #25d366; }
@@ -98,20 +98,20 @@
         <h1 class="bc-name">ARI TAYAR</h1>
         <p class="bc-role"><b>Négociateur</b> – Immobilier commercial<br>Location · Cession · Murs de boutique</p>
       </div>
-      <ul class="bc-lines">
-        <li><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg><a class="tel" href="tel:+33611227490">06 11 22 74 90</a></li>
-        <li><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><a id="mail-link" href="mailto:atayar@flagship.fr?subject=Contact%20via%20votre%20carte%20de%20visite">atayar@flagship.fr</a></li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://maps.apple.com/?q=13+rue+L%C3%A9on+Cogniet+75017+Paris" target="_blank" rel="noopener">13 rue Léon Cogniet, Paris 17e</a></li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><a href="https://www.flagship.fr" target="_blank" rel="noopener">www.flagship.fr</a></li>
-      </ul>
-  <div class="bc-icons">
+      <div class="bc-icons">
     <a class="btn wa" href="https://wa.me/33611227490" target="_blank" rel="noopener" id="btn-wa" aria-label="WhatsApp">
       <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z"/><path d="M9.5 8.5c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.5c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4a6 6 0 0 0 2.9 2.7c.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5-.1.9-.7 1.6-1.6 1.7-1.2.1-2.7-.5-4.3-2S8.6 11.5 8.7 10.3c0-.7.3-1.3.8-1.8z" fill="currentColor" stroke="none"/></svg>
     </a>
     <a class="btn sms" href="sms:+33611227490" id="btn-sms" aria-label="Envoyer un message">
       <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.2-4.3A8 8 0 1 1 21 12z"/><path d="M8 11h.01M12 11h.01M16 11h.01" stroke-width="3"/></svg>
     </a>
-  </div>
+      </div>
+      <ul class="bc-lines">
+        <li><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg><a class="tel" href="tel:+33611227490">06 11 22 74 90</a></li>
+        <li><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><a id="mail-link" href="mailto:atayar@flagship.fr?subject=Contact%20via%20votre%20carte%20de%20visite">atayar@flagship.fr</a></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://maps.apple.com/?q=13+rue+L%C3%A9on+Cogniet+75017+Paris" target="_blank" rel="noopener">13 rue Léon Cogniet, Paris 17e</a></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><a href="https://www.flagship.fr" target="_blank" rel="noopener">www.flagship.fr</a></li>
+      </ul>
     </div>
   </div>
 
