@@ -177,7 +177,16 @@
       }, 1200);
     });
   }
-
+  // Mail : sur téléphone, l'appli mail par défaut (Mail sur iPhone, Gmail sur Android) ;
+  // sur ordinateur, Gmail dans le navigateur avec l'adresse et l'objet déjà remplis.
+  var ua = navigator.userAgent || "";
+  var isPhone = /iPhone|iPad|iPod|Android/i.test(ua);
+  var mailBtn = document.getElementById("btn-mail");
+  if (!isPhone) {
+    mailBtn.href = "https://mail.google.com/mail/?view=cm&fs=1&to=atayar@flagship.fr&su=" + encodeURIComponent("Contact via votre carte de visite");
+    mailBtn.target = "_blank"; mailBtn.rel = "noopener";
+    fallbackNote("btn-call", "0611227490", "tel-note");
+  }
 </script>
 
 </body>
